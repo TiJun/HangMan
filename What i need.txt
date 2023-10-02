@@ -1,0 +1,9 @@
+1. Heading 
+2. Start game state
+    - start game button
+3. Game state
+    - keyboard to click
+    - hangman
+    - container for word to guess
+    - modal you win / you lose
+    
