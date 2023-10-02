@@ -19,10 +19,9 @@ body {
 }
 
 .wrapper {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
@@ -30,8 +29,11 @@ body {
 }
 
 .heading {
+  grid-column: 1/-1;
   font-size: 3em;
+  margin: auto;
   letter-spacing: 5px;
+  text-align: center;
 }
 .heading span {
   color: #fff;
@@ -48,6 +50,9 @@ body {
   color: #fff;
   display: none;
   font-size: 3rem;
+  grid-row: 2/3;
+  grid-column: 1/3;
+  margin: auto;
   transition: background-color 0.3s, color 0.3s;
   padding: 1rem 2rem;
 }
@@ -55,4 +60,36 @@ body {
 .start-game-button:hover {
   background-color: #fff;
   color: #000;
+}
+
+.game-state {
+  box-shadow: 1px 1px 1px 1px #000;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column: 1/3;
+  grid-row: 2/4;
+  padding: 3rem;
+}
+.game-state .keyboard {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.game-state .keyboard__button {
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+.game-state .hangman {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.game-state .word-to-guess {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  margin: auto;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
