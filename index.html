@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HangMan</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-   <h1 class="heading">HangMan</h1>
-   <div class="start-game-state">
-    <button class="start-game-button">Start Game</button>
-   </div>
-   <div class="game-state-button">
-    
-   </div>
+    <h1 class="heading">HangMan</h1>
+    <div class="start-game-state">
+        <button class="start-game-button">Start Game</button>
+    </div>
+    <div class="game-state-button">
+        <div class="keyboard">
+            <button class="keyboard__button">A</button>
+            <button class="keyboard__button">B</button>
+            <button class="keyboard__button">C</button>
+            <button class="keyboard__button">D</button>
+            <button class="keyboard__button">E</button>
+            <button class="keyboard__button">F</button>
+            <button class="keyboard__button">G</button>
+            <button class="keyboard__button">H</button>
+            <button class="keyboard__button">I</button>
+            <button class="keyboard__button">J</button>
+            <button class="keyboard__button">K</button>
+            <button class="keyboard__button">L</button>
+            <button class="keyboard__button">M</button>
+            <button class="keyboard__button">N</button>
+            <button class="keyboard__button">O</button>
+            <button class="keyboard__button">P</button>
+            <button class="keyboard__button">Q</button>
+            <button class="keyboard__button">R</button>
+            <button class="keyboard__button">S</button>
+            <button class="keyboard__button">T</button>
+            <button class="keyboard__button">U</button>
+            <button class="keyboard__button">V</button>
+            <button class="keyboard__button">W</button>
+            <button class="keyboard__button">X</button>
+            <button class="keyboard__button">Y</button>
+            <button class="keyboard__button">Z</button>
+        </div>
+        <div class="hangman"></div>
+        <div class="word-to-guess">
+            <p class="word-to-guess__category"></p>
+            <p class="word-to-guess__word"></p>
+        </div>
+    </div>
     <script src="./js/script.js"></script>
 </body>
+
 </html>
