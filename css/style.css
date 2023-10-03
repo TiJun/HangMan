@@ -199,6 +199,7 @@ body {
 }
 .game-state .word-to-guess__word {
   font-size: 4rem;
+  letter-spacing: 3px;
 }
 
 .in-active {

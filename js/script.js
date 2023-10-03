@@ -14,21 +14,28 @@ const leftLeg = document.querySelector('.hangman__leg--left')
 const rightLeg = document.querySelector('.hangman__leg--right')
 const category = document.querySelector('.word-to-guess__category')
 const wordToGuess = document.querySelector('.word-to-guess__word')
-// ['Poland', 'United Kingdom', 'Estonia'],
-// ['bird', 'cat', 'dog', 'fish']
 const words = {
-    countries: ['Poland', 'United Kingdom', 'Estonia'],
-    animals: ['bird', 'cat', 'dog', 'fish']
+	countries: ['Poland', 'Spain', 'Estonia'],
+	animals: ['bird', 'cat', 'dog', 'fish'],
 }
+let randomWord
+let randomCategory
 const getRandomWord = () => {
-    const randomCategory = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)]
-    const randomWord = words[randomCategory][Math.floor(Math.random() * words[randomCategory].length)]
-    return randomWord
+	randomCategory = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)]
+	randomWord = words[randomCategory][Math.floor(Math.random() * words[randomCategory].length)]
+	category.textContent = randomCategory.toUpperCase()
+	return randomWord
+}
+const hideWordToGuess = () => {
+	for (let letters of randomWord) {
+		let hiddenLetters = '_'
+        wordToGuess.append(hiddenLetters)
+	}
 }
 const activeGame = () => {
-    gameState.classList.remove('in-active')
-    gameButton.classList.add('in-active')
-    getRandomWord()
+	gameState.classList.remove('in-active')
+	gameButton.classList.add('in-active')
+	getRandomWord()
+	hideWordToGuess()
 }
 gameButton.addEventListener('click', activeGame)
-console.log(getRandomWord());
