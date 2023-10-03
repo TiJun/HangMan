@@ -14,10 +14,10 @@
 
 <body>
     <div class="wrapper">
-        <h1 class="heading">Hang<span><img class="heading__gallows-icon" src="./img/gallowsIcon.svg"
-                    alt="gallows icon"></span><span>Man</span></h1>
+        <h1 class="heading">Hang<span><img class="heading__gallows-icon" src="./img/gallowsIcon.svg" alt="gallows icon"></span><span class="heading__second">Man</span></h1>
+        <h2 class="lose-info in-active">You Lose</h2>
         <button class="start-game-button">Start Game</button>
-        <div class="game-state">
+        <div class="game-state in-active">
             <div class="keyboard">
                 <button class="keyboard__button">A</button>
                 <button class="keyboard__button">B</button>
@@ -49,20 +49,20 @@
                 <button class="keyboard__button">Z</button>
             </div>
             <div class="hangman">
-                <div id="bad-answers-state" class="hangman__gallows--bottom"></div>
-                <div id="bad-answers-state" class="hangman__gallows--middle"></div>
-                <div id="bad-answers-state" class="hangman__gallows--top"></div>
-                <div id="bad-answers-state" class="hangman__gallows--rope"></div>
-                <div id="bad-answers-state" class="hangman__head"></div>
-                <div id="bad-answers-state" class="hangman__body"></div>
-                <div id="bad-answers-state" class="hangman__arm--left"></div>
-                <div id="bad-answers-state" class="hangman__arm--right"></div>
-                <div id="bad-answers-state" class="hangman__leg--left"></div>
-                <div id="bad-answers-state" class="hangman__leg--right"></div>
+                <div id="bad-answers-state" class="in-active hangman__gallows--bottom"></div>
+                <div id="bad-answers-state" class="in-active hangman__gallows--middle"></div>
+                <div id="bad-answers-state" class="in-active hangman__gallows--top"></div>
+                <div id="bad-answers-state" class="in-active hangman__gallows--rope"></div>
+                <div id="bad-answers-state" class="in-active hangman__head"></div>
+                <div id="bad-answers-state" class="in-active hangman__body"></div>
+                <div id="bad-answers-state" class="in-active hangman__arm--left"></div>
+                <div id="bad-answers-state" class="in-active hangman__arm--right"></div>
+                <div id="bad-answers-state" class="in-active hangman__leg--left"></div>
+                <div id="bad-answers-state" class="in-active hangman__leg--right"></div>
             </div>
             <div class="word-to-guess">
-                <p class="word-to-guess__category">ANIMAL</p>
-                <p class="word-to-guess__word">_ _ _ _ _</p>
+                <p class="word-to-guess__category"></p>
+                <p class="word-to-guess__word"></p>
             </div>
         </div>
     </div>
