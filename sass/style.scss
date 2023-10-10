@@ -179,13 +179,14 @@ body {
 		grid-row: 2/3;
 		margin: auto;
 		text-align: center;
+		position: relative;
 		&__category {
 			font-size: 3rem;
 			font-weight: 700;
 		}
-		&__word {
+		&__word{
             font-size: 4rem;
-			letter-spacing: 3px;
+			letter-spacing: 5px;
 		}
 	}
 }

@@ -103,10 +103,6 @@ body {
   cursor: auto;
   opacity: 0.5;
 }
-.game-state .keyboard .disabled-button:hover {
-  background-color: #fff;
-  color: #000;
-}
 .game-state .hangman {
   grid-column: 3/4;
   grid-row: 1/2;
@@ -192,6 +188,7 @@ body {
   grid-row: 2/3;
   margin: auto;
   text-align: center;
+  position: relative;
 }
 .game-state .word-to-guess__category {
   font-size: 3rem;
@@ -199,7 +196,7 @@ body {
 }
 .game-state .word-to-guess__word {
   font-size: 4rem;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
 }
 
 .in-active {
