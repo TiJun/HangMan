@@ -8,7 +8,7 @@ const wordToGuessElement = document.querySelector('.word-to-guess__word')
 const underlines = document.querySelector('.underlines')
 const wordToGuessArr = []
 const words = {
-	countries: ['Poland', 'Spain', 'Estonia'],
+	countries: ['Poland', 'Spain', 'Estonia', 'Algeria'],
 	animals: ['bird', 'cat', 'dog', 'fish'],
 }
 let wordToGuess
