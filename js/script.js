@@ -8,7 +8,7 @@ const wordToGuessElement = document.querySelector('.word-to-guess__word')
 const underlines = document.querySelector('.underlines')
 const wordToGuessArr = []
 const words = {
-	countries: ['Poland', 'Spain', 'Estonia'],
+	countries: ['Poland', 'Spain', 'Estonia', 'Algieria'],
 	animals: ['bird', 'cat', 'dog', 'fish'],
 }
 let wordToGuess
@@ -27,12 +27,18 @@ const hideLetter = () => {
 	}
 	wordToGuessElement.textContent = wordToGuessArr.join('')
 }
+const checkWin = () => {
+	if (wordToGuessElement.textContent === wordToGuess) {
+		console.log('You win');
+	}
+}
 let badAnswer = -1
 const checkLetter = e => {
 	const clickedLetter = e.target.textContent
 	if (wordToGuess.includes(clickedLetter)) {
 		wordToGuessArr.splice(wordToGuess.indexOf(clickedLetter), 1, clickedLetter)
 		wordToGuessElement.textContent = wordToGuessArr.join('')
+		checkWin()
 	} else {
 		badAnswer++
 		gallow[badAnswer].classList.remove('in-active')
