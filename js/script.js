@@ -4,41 +4,47 @@ const gameState = document.querySelector('.game-state')
 const letterButtons = document.querySelectorAll('.keyboard__button')
 const gallow = document.querySelectorAll('#bad-answers-state')
 const category = document.querySelector('.word-to-guess__category')
-const wordToGuessElement = document.querySelector('.word-to-guess__word')
+const wordToGuess = document.querySelector('.word-to-guess__word')
 const underlines = document.querySelector('.underlines')
-const wordToGuessArr = []
+const tries = []
 const words = {
-	countries: ['Poland', 'Spain', 'Estonia', 'Algieria'],
+	countries: ['Poland', 'Spain', 'Estonia', 'Algieria', 'United Kingdom'],
 	animals: ['bird', 'cat', 'dog', 'fish'],
 }
-let wordToGuess
+String.prototype.replaceAt = function (index, replacement) {
+	return this.substring(0, index) + replacement + this.substring(index + replacement.length)
+}
+let randomWord
 let randomCategory
 const getRandomWord = () => {
 	randomCategory = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)]
-	wordToGuess = words[randomCategory][Math.floor(Math.random() * words[randomCategory].length)].toUpperCase()
+	randomWord = words[randomCategory][Math.floor(Math.random() * words[randomCategory].length)].toUpperCase().split('')
 	category.textContent = `Category : ${randomCategory.toUpperCase()}`
-	console.log(wordToGuess)
+	console.log(randomWord)
 	hideLetter()
-	return wordToGuess
+	return randomWord
 }
 const hideLetter = () => {
-	for (let i = 0; i < wordToGuess.length; i++) {
-		wordToGuessArr.push('-')
+	for (let i = 0; i < randomWord.length; i++) {
+		tries.push('-')
 	}
-	wordToGuessElement.textContent = wordToGuessArr.join('')
+	wordToGuess.textContent = tries.join('')
 }
 const checkWin = () => {
-	if (wordToGuessElement.textContent === wordToGuess) {
-		console.log('You win');
+	if (wordToGuess.textContent === randomWord) {
+		console.log('You win')
 	}
 }
 let badAnswer = -1
 const checkLetter = e => {
 	const clickedLetter = e.target.textContent
-	if (wordToGuess.includes(clickedLetter)) {
-		wordToGuessArr.splice(wordToGuess.indexOf(clickedLetter), 1, clickedLetter)
-		wordToGuessElement.textContent = wordToGuessArr.join('')
-		checkWin()
+	if (randomWord.includes(clickedLetter)) {
+		;[...randomWord].forEach((letter, index) => {
+			if (letter === clickedLetter) {
+				tries.splice(index, 1, clickedLetter)
+			}
+		})
+		wordToGuess.textContent = tries.join('')
 	} else {
 		badAnswer++
 		gallow[badAnswer].classList.remove('in-active')
