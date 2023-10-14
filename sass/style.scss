@@ -61,9 +61,7 @@ body {
     text-align: center;
 }
 .game-state {
-	box-shadow: 2px 2px 10px 0px #fff;
 	border-radius: 10px;
-	backdrop-filter: blur(4px);
 	display: grid;
 	grid-template-rows: repeat(2, 1fr);
 	grid-template-columns: repeat(3, 1fr);

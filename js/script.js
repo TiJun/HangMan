@@ -1,4 +1,4 @@
-const loseInfo = document.querySelector('.lose-info')
+const resultInfo = document.querySelector('.result-info')
 const gameButton = document.querySelector('.game-button')
 const gameState = document.querySelector('.game-state')
 const letterButtons = document.querySelectorAll('.keyboard__button')
@@ -6,36 +6,47 @@ const gallow = document.querySelectorAll('#bad-answers-state')
 const category = document.querySelector('.word-to-guess__category')
 const wordToGuess = document.querySelector('.word-to-guess__word')
 const underlines = document.querySelector('.underlines')
-const tries = []
-const words = {
-	countries: ['Poland', 'Spain', 'Estonia', 'Algieria', 'United Kingdom'],
-	animals: ['bird', 'cat', 'dog', 'fish'],
-}
-String.prototype.replaceAt = function (index, replacement) {
-	return this.substring(0, index) + replacement + this.substring(index + replacement.length)
-}
+let tries = []
 let randomWord
 let randomCategory
+let badAnswer = -1
+const words = {
+	country: ['Poland', 'Spain', 'Estonia', 'Germany', 'United Kingdom'],
+	animal: ['bird', 'cat', 'dog', 'fish'],
+	actor: ['Brad Pitt', 'Robert De Niro', 'Bruce Willis', 'Jason Statham'],
+	game: ['the witcher', 'cyberpunk', 'grand theft auto', 'sleeping dogs', 'god of war'],
+}
 const getRandomWord = () => {
 	randomCategory = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)]
-	randomWord = words[randomCategory][Math.floor(Math.random() * words[randomCategory].length)].toUpperCase().split('')
+	randomWord = words[randomCategory][Math.floor(Math.random() * words[randomCategory].length)].toUpperCase()
 	category.textContent = `Category : ${randomCategory.toUpperCase()}`
-	console.log(randomWord)
 	hideLetter()
-	return randomWord
 }
 const hideLetter = () => {
 	for (let i = 0; i < randomWord.length; i++) {
-		tries.push('-')
+		if (randomWord[i] === ' ') {
+			tries.push(' ')
+		} else {
+			tries.push('-')
+		}
 	}
 	wordToGuess.textContent = tries.join('')
 }
 const checkWin = () => {
-	if (wordToGuess.textContent === randomWord) {
-		console.log('You win')
+	if (wordToGuess.textContent == randomWord) {
+		category.textContent = 'Congratulation You win!'
 	}
 }
-let badAnswer = -1
+const checkLose = () => {
+	if (badAnswer === 9) {
+		category.textContent = 'You lose, the password is :'
+		wordToGuess.textContent = randomWord
+		letterButtons.forEach(button => {
+			button.setAttribute('disabled', true)
+			button.classList.add('disabled-button')
+		})
+	}
+}
 const checkLetter = e => {
 	const clickedLetter = e.target.textContent
 	if (randomWord.includes(clickedLetter)) {
@@ -61,5 +72,7 @@ letterButtons.forEach(button => {
 		checkLetter(e)
 		button.classList.add('disabled-button')
 		button.setAttribute('disabled', 'true')
+		checkWin()
+		checkLose()
 	})
 })
