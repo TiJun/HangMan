@@ -59,6 +59,8 @@ const checkLetter = e => {
 	} else {
 		badAnswer++
 		gallow[badAnswer].classList.remove('in-active')
+		badAnswer++
+		gallow[badAnswer].classList.remove('in-active')
 	}
 }
 const activeGame = () => {
