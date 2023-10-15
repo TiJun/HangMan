@@ -55,7 +55,7 @@ const checkLose = () => {
 const checkLetter = e => {
 	const clickedLetter = e.target.textContent
 	if (randomWord.includes(clickedLetter)) {
-		;[...randomWord].forEach((letter, index) => {
+		[...randomWord].forEach((letter, index) => {
 			if (letter === clickedLetter) {
 				tries.splice(index, 1, clickedLetter)
 			}
