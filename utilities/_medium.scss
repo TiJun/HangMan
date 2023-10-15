@@ -1,35 +1,37 @@
 @mixin medium {
-    @media (min-width: 768px) {
-        .game-state {
-            .keyboard {
-                text-align: center;
-                &__button {
-                    font-size: 1em;
-                    padding: 0.5rem 1rem;
-                }
-            }
-            .hangman {
-                &__head {
-                    left: 47%;
-                }
-                &__body {
-                    top: 30%;
-                }
-                &__arm--left, &__arm--right {
-                    top: 40%;
-                }
-                &__leg--right, &__leg--left {
-                    top: 74%;
-                }
-            }
-            .word-to-guess {
-                &__category {
-                    font-size: 3rem;
-                }
-                &__word {
-                    font-size: 4rem;
-                }
-            }
-        }
-    }
+	@media (min-width: 768px) {
+		.game-state {
+			.keyboard {
+				text-align: center;
+				&__button {
+					font-size: 1em;
+					padding: 0.5rem 1rem;
+				}
+			}
+			.hangman {
+				&__head {
+					left: 47%;
+				}
+				&__body {
+					top: 30%;
+				}
+				&__arm--left,
+				&__arm--right {
+					top: 40%;
+				}
+				&__leg--right,
+				&__leg--left {
+					top: 74%;
+				}
+			}
+			.word-to-guess {
+				&__category {
+					font-size: 3rem;
+				}
+				&__word {
+					font-size: 4rem;
+				}
+			}
+		}
+	}
 }
