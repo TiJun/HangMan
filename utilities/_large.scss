@@ -1,0 +1,23 @@
+@mixin large {
+    @media (min-width: 992px) {
+        .game-state {
+            .hangman {
+                grid-column: 2/3;
+                &__head {
+                    left: 45%;
+                }
+                &__leg--right, &__leg--left {
+                    top: 72%;
+                }
+            }
+            .word-to-guess {
+                &__category {
+                    font-size: 4rem;
+                }
+                &__word {
+                    font-size: 5rem;
+                }
+            }
+        }
+    }
+}

@@ -1,15 +1,17 @@
 const resultInfo = document.querySelector('.result-info')
-const gameButton = document.querySelector('.game-button')
+const gameButton = document.querySelector('.start-game-button')
+const playAgainButton = document.querySelector('.play-again')
 const gameState = document.querySelector('.game-state')
 const letterButtons = document.querySelectorAll('.keyboard__button')
 const gallow = document.querySelectorAll('#bad-answers-state')
 const category = document.querySelector('.word-to-guess__category')
 const wordToGuess = document.querySelector('.word-to-guess__word')
 const underlines = document.querySelector('.underlines')
+const heading = document.querySelector('.heading')
 let tries = []
 let randomWord
 let randomCategory
-let badAnswer = -1
+let badAnswer
 const words = {
 	country: ['Poland', 'Spain', 'Estonia', 'Germany', 'United Kingdom'],
 	animal: ['bird', 'cat', 'dog', 'fish'],
@@ -17,6 +19,7 @@ const words = {
 	game: ['the witcher', 'cyberpunk', 'grand theft auto', 'sleeping dogs', 'god of war'],
 }
 const getRandomWord = () => {
+	badAnswer = -1
 	randomCategory = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)]
 	randomWord = words[randomCategory][Math.floor(Math.random() * words[randomCategory].length)].toUpperCase()
 	category.textContent = `Category : ${randomCategory.toUpperCase()}`
@@ -35,6 +38,7 @@ const hideLetter = () => {
 const checkWin = () => {
 	if (wordToGuess.textContent == randomWord) {
 		category.textContent = 'Congratulation You win!'
+		playAgainButton.classList.remove('in-active')
 	}
 }
 const checkLose = () => {
@@ -45,6 +49,7 @@ const checkLose = () => {
 			button.setAttribute('disabled', true)
 			button.classList.add('disabled-button')
 		})
+		playAgainButton.classList.remove('in-active')
 	}
 }
 const checkLetter = e => {
@@ -68,7 +73,26 @@ const activeGame = () => {
 	gameButton.classList.add('in-active')
 	getRandomWord()
 }
-gameButton.addEventListener('click', activeGame)
+const restartGame = () => {
+	wordToGuess.textContent = ''
+	tries = []
+	letterButtons.forEach(button => {
+		button.classList.remove('disabled-button')
+		button.removeAttribute('disabled')
+	})
+	gallow.forEach(el => {
+		el.classList.add('in-active')
+	})
+	playAgainButton.classList.add('in-active')
+	getRandomWord()
+}
+gameButton.addEventListener('click', () => {
+	activeGame()
+	if(!gameState.classList.contains('in-active')) {
+		heading.classList.add('in-active')
+		gameState.style.height = 100 + 'vh'
+	}
+})
 letterButtons.forEach(button => {
 	button.addEventListener('click', e => {
 		checkLetter(e)
@@ -78,3 +102,4 @@ letterButtons.forEach(button => {
 		checkLose()
 	})
 })
+playAgainButton.addEventListener('click', restartGame)

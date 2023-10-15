@@ -15,38 +15,43 @@
 <body>
     <div class="bg-shadow"></div>
     <div class="wrapper">
-        <h1 class="heading">Hang<span><img class="heading__gallows-icon" src="./img/gallowsIcon.svg" alt="gallows icon"></span><span class="heading__second">Man</span></h1>
-        <button class="game-button">Start Game</button>
+        <h1 class="heading">Hang<span><img class="heading__gallows-icon" src="./img/gallowsIcon.svg"
+                    alt="gallows icon"></span><span class="heading__second">Man</span></h1>
+        <button class="start-game-button">Start Game</button>
         <div class="game-state in-active">
             <div class="keyboard">
-                <button class="keyboard__button">A</button>
-                <button class="keyboard__button">B</button>
-                <button class="keyboard__button">C</button>
-                <button class="keyboard__button">D</button>
-                <button class="keyboard__button">E</button>
-                <button class="keyboard__button">F</button>
-                <button class="keyboard__button">G</button>
-                <button class="keyboard__button">H</button>
-                <button class="keyboard__button">I</button>
-                <br>
-                <button class="keyboard__button">J</button>
-                <button class="keyboard__button">K</button>
-                <button class="keyboard__button">L</button>
-                <button class="keyboard__button">M</button>
-                <button class="keyboard__button">N</button>
-                <button class="keyboard__button">O</button>
-                <button class="keyboard__button">P</button>
-                <button class="keyboard__button">Q</button>
-                <br>
-                <button class="keyboard__button">R</button>
-                <button class="keyboard__button">S</button>
-                <button class="keyboard__button">T</button>
-                <button class="keyboard__button">U</button>
-                <button class="keyboard__button">V</button>
-                <button class="keyboard__button">W</button>
-                <button class="keyboard__button">X</button>
-                <button class="keyboard__button">Y</button>
-                <button class="keyboard__button">Z</button>
+                <div class="keyboard__first-row">
+                    <button class="keyboard__button">A</button>
+                    <button class="keyboard__button">B</button>
+                    <button class="keyboard__button">C</button>
+                    <button class="keyboard__button">D</button>
+                    <button class="keyboard__button">E</button>
+                    <button class="keyboard__button">F</button>
+                    <button class="keyboard__button">G</button>
+                    <button class="keyboard__button">H</button>
+                    <button class="keyboard__button">I</button>
+                    <button class="keyboard__button">J</button>
+                </div>
+                <div class="keyboard__second-row">
+                    <button class="keyboard__button">K</button>
+                    <button class="keyboard__button">L</button>
+                    <button class="keyboard__button">M</button>
+                    <button class="keyboard__button">N</button>
+                    <button class="keyboard__button">O</button>
+                    <button class="keyboard__button">P</button>
+                    <button class="keyboard__button">Q</button>
+                    <button class="keyboard__button">R</button>
+                    <button class="keyboard__button">S</button>
+                </div>
+                <div class="keyboard__third-row">
+                    <button class="keyboard__button">T</button>
+                    <button class="keyboard__button">U</button>
+                    <button class="keyboard__button">V</button>
+                    <button class="keyboard__button">W</button>
+                    <button class="keyboard__button">X</button>
+                    <button class="keyboard__button">Y</button>
+                    <button class="keyboard__button">Z</button>
+                </div>
             </div>
             <div class="hangman">
                 <div id="bad-answers-state" class="in-active hangman__gallows--bottom"></div>
@@ -63,6 +68,7 @@
             <div class="word-to-guess">
                 <p class="word-to-guess__category"></p>
                 <p class="word-to-guess__word"></p>
+                <button class="play-again in-active">Play Again</button>
             </div>
         </div>
     </div>
