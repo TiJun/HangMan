@@ -1,5 +1,8 @@
 @mixin large {
     @media (min-width: 992px) {
+        .heading {
+            font-size: 3em;
+        }
         .game-state {
             .hangman {
                 grid-column: 2/3;
