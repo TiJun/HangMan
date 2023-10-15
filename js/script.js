@@ -88,10 +88,8 @@ const restartGame = () => {
 }
 gameButton.addEventListener('click', () => {
 	activeGame()
-	if (!gameState.classList.contains('in-active')) {
-		heading.classList.add('in-active')
-		gameState.style.height = 100 + 'vh'
-	}
+	heading.classList.add('in-active')
+	gameState.style.height = '100vh'
 })
 letterButtons.forEach(button => {
 	button.addEventListener('click', e => {
